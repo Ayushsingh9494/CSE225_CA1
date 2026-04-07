@@ -42,13 +42,12 @@ fun Dashboard() {
         "Cybersecurity"
     )
 
-    // ✅ Spinner options (fixed spelling)
     val options = listOf("All", "Java", "Kotlin", "Android", "AI", "Cybersecurity")
     var selectedOption by remember { mutableStateOf("All") }
 
     var ratings = remember { mutableStateMapOf<String, Int>() }
 
-    // ✅ Filtering logic
+
     val filteredList = if (selectedOption == "All") {
         techList
     } else {
@@ -57,7 +56,6 @@ fun Dashboard() {
 
     Column(modifier = Modifier.padding(16.dp)) {
 
-        // 🔹 Title
         Text(
             text = "Dashboard",
             fontSize = 22.sp,
@@ -68,14 +66,12 @@ fun Dashboard() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔽 Spinner
         DropdownMenuBox(options, selectedOption) {
             selectedOption = it
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔲 Grid
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             verticalArrangement = Arrangement.spacedBy(12.dp),
